@@ -26,6 +26,14 @@ jobs:
         echo "Iniciando login"
         docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
         echo "Fin del login"
+
+    - name: build Docker Image
+      run: |
+        docker build -t harpis/docker-graphql:0.0.2 .
+
+    - name: Push Docker Image
+      run: |
+        docker push harpis/docker-graphql:0.0.2 .
         
       
         
